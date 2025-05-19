@@ -3,24 +3,18 @@ body {
     background-color: #f8f9fa;
 }
 
-/* Прозорий навбар */
 .navbar {
     background-color: transparent !important;
     box-shadow: none;
-    position: absolute; /* було fixed */
+    position: absolute;
     width: 100%;
-    z-index: 1030; /* поверх картинки */
+    z-index: 1030;
 }
 
 .navbar .nav-link,
 .navbar .navbar-brand {
     color: white;
     transition: color 0.3s ease;
-}
-
-.navbar .nav-link:hover,
-.navbar .navbar-brand:hover {
-    color: #ffc107;
 }
 
 .navbar-toggler {
@@ -47,15 +41,18 @@ body {
     overflow: hidden;
 }
 
+.nav-item{
+    font-size: 20px;
+}
+
 .hero-section::before {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* чорний колір з 50% прозорістю */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
 
-/* Весь контент всередині секції має вищий індекс, щоб бути поверх overlay */
 .hero-section .container {
     position: relative;
     z-index: 1;
@@ -63,24 +60,51 @@ body {
 }
 
 
-
-
-
 .navbar-brand{
     text-align: left;
-    font-size: 28px;
+    font-size: 35px;
     font-weight: bold;
-    margin-right: 50px;
+
 }
+
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #ffc107; /* Жовта полоска */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffc107;
+}
+
 
 .hero-section h1 {
     font-size: 3rem;
+    max-width: 900px;
     color: #fff;
 }
 
 .hero-section p {
     color: #ddd;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -95,6 +119,37 @@ body {
     font-weight: 600;
 }
 
-footer {
-    font-size: 0.9rem;
+.footer-custom {
+    background: linear-gradient(90deg, #111, #222);
+    color: #ccc;
+    padding: 40px 0 20px;
+    font-size: 0.95rem;
+    border-top: 2px solid #ffc107;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.4);
 }
+
+.footer-custom h5 {
+    color: #ffc107;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-custom a {
+    color: #ffc107;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-custom a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-custom hr {
+    opacity: 0.2;
+}
+
+.footer-custom p {
+    margin-bottom: 8px;
+}
+
